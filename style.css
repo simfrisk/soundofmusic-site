@@ -91,9 +91,9 @@ nav.scrolled {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://soundofmusic.se/wp-content/uploads/2024/10/cropped-IMG_1998-scaled-1.jpg');
+  background-image: url('hero.jpg');
   background-size: cover;
-  background-position: center 60%;
+  background-position: center 40%;
   background-attachment: fixed;
 }
 .hero-bg::after {
