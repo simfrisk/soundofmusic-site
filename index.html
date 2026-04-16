@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torbjörn Frisk — Music Producer &amp; Sound Designer</title>
+  <meta name="description" content="Torbjörn 'Toby' Frisk — Stockholm-based music producer and sound designer. 30+ years creating music for film, TV, podcasts and media." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #07070f;
+      --bg2:      #0d0d1a;
+      --blue:     #5bc8f5;
+      --blue-dim: #2a6a8a;
+      --green:    #3dffa0;
+      --white:    #f0f4ff;
+      --muted:    #7a8499;
+      --border:   rgba(91,200,245,0.12);
+      --radius:   12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(7,7,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 48px 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://soundofmusic.se/wp-content/uploads/2024/10/cropped-IMG_1998-scaled-1.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(7,7,15,0.2) 0%,
+        rgba(7,7,15,0.1) 40%,
+        rgba(7,7,15,0.75) 70%,
+        rgba(7,7,15,1) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--blue);
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue);
+      color: #07070f;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      right: 48px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 100px 48px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--blue);
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      margin-bottom: 48px;
+    }
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); }
+    p + p { margin-top: 14px; }
+
+    /* ─── ABOUT ─── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-wrap img {
+      width: 100%;
+      border-radius: var(--radius);
+      display: block;
+      filter: grayscale(10%);
+    }
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 0 1px var(--border);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--blue);
+      color: #07070f;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 12px 18px;
+      border-radius: 8px;
+      line-height: 1.3;
+    }
+    .about-text { padding-top: 12px; }
+    .about-text h2 { margin-bottom: 24px; }
+    .about-text p { font-size: 1.05rem; line-height: 1.75; }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--blue); }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: none; }
+    #services-bg {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--bg2);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: rgba(91,200,245,0.04); }
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .service-card h3 { color: var(--white); margin-bottom: 10px; }
+    .service-card p { font-size: 0.9rem; }
+
+    /* ─── AWARD ─── */
+    #award .award-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .award-poster {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+    .award-poster img {
+      width: 100%;
+      display: block;
+      border-radius: var(--radius);
+    }
+    .award-cert {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .award-cert img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .award-text h2 { margin-bottom: 20px; }
+    .award-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(61,255,160,0.08);
+      border: 1px solid rgba(61,255,160,0.2);
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    /* ─── ANALOG PROPHET ─── */
+    #prophet {
+      position: relative;
+      padding: 100px 48px;
+      overflow: hidden;
+      max-width: none;
+    }
+    #prophet::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,200,245,0.06) 0%, transparent 70%),
+        var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .prophet-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .prophet-embed iframe {
+      width: 100%;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .prophet-text h2 { margin-bottom: 16px; }
+    .prophet-quote {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--blue);
+      line-height: 1.5;
+      margin: 24px 0;
+      padding-left: 20px;
+      border-left: 2px solid var(--blue);
+    }
+    .spotify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      background: rgba(30,215,96,0.1);
+      border: 1px solid rgba(30,215,96,0.25);
+      color: #1ed760;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .spotify-btn:hover { background: rgba(30,215,96,0.18); }
+    .spotify-logo { width: 18px; height: 18px; }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      text-align: center;
+      padding: 120px 48px;
+    }
+    #contact h2 { margin-bottom: 16px; }
+    #contact .hero-sub { margin: 0 auto 40px; }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .contact-email:hover { border-color: var(--blue); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      #hero { padding: 0 24px 64px; }
+      #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-badge { display: none; }
+      .award-grid { grid-template-columns: 1fr !important; }
+      .prophet-inner { grid-template-columns: 1fr; gap: 40px; }
+      #prophet { padding: 72px 24px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">Sound<span>.</span>of<span>.</span>Music</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#award">Work</a></li>
+    <li><a href="#prophet">Analog Prophet</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Stockholm, Sweden · Est. 1994</div>
+    <h1>Torbjörn<br />"Toby" Frisk</h1>
+    <p class="hero-sub">Music producer and sound designer crafting audio for film, TV, streaming, and media for over 30 years.</p>
+    <a class="hero-cta" href="#contact">
+      Get in touch
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>
+    Scroll
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <img
+        src="https://soundofmusic.se/wp-content/uploads/2024/07/IMG_1921-scaled.jpeg"
+        alt="Torbjörn Frisk in the studio"
+        loading="lazy"
+      />
+      <div class="about-badge">30+ years<br />in music &amp; audio</div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2>Crafted audio,<br />built on trust.</h2>
+      <p>Torbjörn "Toby" Frisk is a Stockholm-based music producer, composer and sound designer who has spent over three decades at the intersection of music, technology, and storytelling.</p>
+      <p>With a deep love for synthesisers and analog gear, Toby brings a distinctive sonic character to every project — from intimate audiobooks to award-winning short films. His philosophy is simple: <em style="color:var(--white)">"A good work is about good relations with people."</em></p>
+      <p>He works with publishers, filmmakers, broadcasters, and independent creators who value quality, care, and a producer who genuinely listens.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">30<span>+</span></div>
+          <div class="stat-label">Years of experience</div>
+        </div>
+        <div>
+          <div class="stat-num">1<span>★</span></div>
+          <div class="stat-label">International film award</div>
+        </div>
+        <div>
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Projects completed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<div id="services-bg">
+  <section id="services">
+    <div class="section-label">Services</div>
+    <h2>What I do</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🎼</span>
+        <h3>Music Production</h3>
+        <p>Original compositions and arrangements tailored to your project — from single tracks to full-length scores.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎬</span>
+        <h3>Sound Design</h3>
+        <p>Audio for film and video — from atmospheric soundscapes to precise foley and mixing for picture.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📺</span>
+        <h3>TV &amp; Streaming</h3>
+        <p>End-to-end audio production for television, streaming platforms, and live broadcast including Dolby Atmos.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎙️</span>
+        <h3>Podcasts &amp; Audiobooks</h3>
+        <p>Recording, editing, and mastering for spoken word content — working with publishers and independent creators.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📻</span>
+        <h3>Radio Production</h3>
+        <p>Audio production for radio broadcasts, jingles, and commercial content with a clean, professional finish.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎓</span>
+        <h3>Education</h3>
+        <p>Workshops and one-on-one sessions in music production, sound design, and audio technology.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ─── AWARD ─── -->
+<section id="award">
+  <div class="section-label">Selected Work</div>
+  <h2>Recognized craft.</h2>
+  <div class="award-grid">
+    <div>
+      <div class="award-chip">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+        Award winner
+      </div>
+      <p style="font-size:1.05rem; line-height:1.75; color:var(--muted); margin-bottom:24px;">Sound design for <em style="color:var(--white)">Death to Platitudes</em>, a Norwegian short film by Øyvind Olav Sydow Kleiveland, earned Toby the <strong style="color:var(--white)">Best Sound Design</strong> award at the Rome International Movie Awards in 2024.</p>
+      <p style="font-size:1.05rem; line-height:1.75; color:var(--muted); margin-bottom:24px;">The film also picked up multiple nominations at the Christian Film Festival and was selected for the New York Independent Film Awards — a multi-award run for a tightly crafted short.</p>
+      <p style="font-size:1.05rem; line-height:1.75; color:var(--muted);">Other recent credits include a Dolby Atmos re-recording of a 40-year retrospective concert, children's programme audio for Ankhoven and Ottar Bäver, and ongoing church streaming productions across Sweden.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div class="award-poster">
+        <img src="https://soundofmusic.se/wp-content/uploads/2024/07/IMG_0131.jpeg" alt="Death to Platitudes film poster" loading="lazy" />
+      </div>
+      <div class="award-cert">
+        <img src="https://soundofmusic.se/wp-content/uploads/2024/07/IMG_0129.png" alt="Rome International Movie Awards — Best Sound Design certificate" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Studio photo -->
+  <div style="margin-top:64px; border-radius:var(--radius); overflow:hidden; position:relative;">
+    <img
+      src="https://soundofmusic.se/wp-content/uploads/2024/10/IMG_2065-scaled.jpg"
+      alt="Recording session in the Sound of Music studio"
+      loading="lazy"
+      style="width:100%; display:block; max-height:480px; object-fit:cover; object-position:center 30%;"
+    />
+    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(7,7,15,0.6) 0%, transparent 50%);"></div>
+    <div style="position:absolute; bottom:36px; left:40px;">
+      <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:8px;">In the studio</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:600;">Where ideas become sound.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ANALOG PROPHET ─── -->
+<div id="prophet">
+  <div class="prophet-inner">
+    <div class="prophet-embed">
+      <div class="section-label">Music Project</div>
+      <h2 style="margin-bottom:28px;">Analog Prophet</h2>
+      <iframe
+        src="https://open.spotify.com/embed/artist/6FYDbbnvQy4rjDg5mhq8Wq?utm_source=generator&theme=0"
+        width="100%"
+        height="380"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+      <a
+        class="spotify-btn"
+        href="https://open.spotify.com/artist/6FYDbbnvQy4rjDg5mhq8Wq"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="spotify-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Open on Spotify
+      </a>
+    </div>
+    <div class="prophet-text">
+      <p style="font-size:1.05rem; line-height:1.8;">Analog Prophet is Toby's personal music project — electronic ambient music with ethnic influences, designed for reflection and calm.</p>
+      <blockquote class="prophet-quote">"The best beat of any music is the beat of your own heart."</blockquote>
+      <p style="font-size:1.05rem; line-height:1.8;">The project draws from Toby's love of synthesisers and analog gear, weaving together textures and rhythms that feel both ancient and futuristic. Albums include <em style="color:var(--white)">Visions</em> (2025) and <em style="color:var(--white)">Hana Ka'nima</em> (2011).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-label" style="justify-content:center;">Contact</div>
+  <h2>Let's make something<br />worth hearing.</h2>
+  <p class="hero-sub">Whether you have a film, a podcast, a project in mind — or just want to talk sound — reach out.</p>
+  <a class="contact-email" href="mailto:info@soundofmusic.se">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M2 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    info@soundofmusic.se
+  </a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span>© 2025 Torbjörn Frisk / Sound of Music Stockholm</span>
+  <span>Built on <a href="https://www.osaas.io" target="_blank" rel="noopener">Open Source Cloud</a></span>
+</footer>
+
+<script>
+  // Sticky nav
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Subtle hero parallax
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    heroBg.style.transform = `scale(1.04) translateY(${y * 0.2}px)`;
+  }, { passive: true });
+
+  // Animate hero bg scale on load
+  window.addEventListener('load', () => {
+    heroBg.style.transform = 'scale(1) translateY(0)';
+  });
+</script>
+</body>
+</html>
