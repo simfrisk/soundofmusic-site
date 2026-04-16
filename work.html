@@ -3,24 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work — Torbjörn Frisk</title>
-  <meta name="description" content="30+ years of music production, sound design, TV, film, podcasts, audiobooks and more — the full credits of Torbjörn Frisk." />
+  <title>Work, Torbjörn Frisk</title>
+  <meta name="description" content="30+ years of music production, sound design, TV, film, podcasts, audiobooks and more, the full credits of Torbjörn Frisk." />
+  <meta name="author" content="Torbjörn Frisk" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Work — Torbjörn Frisk, Music Producer & Sound Designer" />
+  <meta property="og:description" content="450+ TV episodes, award-winning sound design, and three decades of music production. Browse the full portfolio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://soundofmusic.apps.osaas.io/work" />
+  <meta property="og:image" content="https://soundofmusic.apps.osaas.io/hero.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Work — Torbjörn Frisk, Music Producer & Sound Designer" />
+  <meta name="twitter:description" content="450+ TV episodes, award-winning sound design, and three decades of music production. Browse the full portfolio." />
+  <meta name="twitter:image" content="https://soundofmusic.apps.osaas.io/hero.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar" class="scrolled">
-  <a class="nav-logo" href="index.html">Sound<span>.</span>of<span>.</span>Music</a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="work.html" class="active">Work</a></li>
-    <li><a href="analog-prophet.html">Analog Prophet</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  <a class="nav-logo" href="/">Sound<span>.</span>of<span>.</span>Music</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/work" class="active">Work</a></li>
+    <li><a href="/analog-prophet">Analog Prophet</a></li>
+    <li><a href="/#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -28,32 +46,32 @@
 <div class="page-header">
   <div class="label">Portfolio</div>
   <h1>Music we made.</h1>
-  <p>Three decades of work across TV, film, radio, audiobooks, podcasts, and music production — a selection of projects and clients.</p>
+  <p>Three decades of work across TV, film, radio, audiobooks, podcasts, and music production, a selection of projects and clients.</p>
 </div>
 
 <!-- ─── CONTENT ─── -->
 <section class="section">
 
   <!-- FEATURED: SKILDA VÄRLDAR -->
-  <div class="featured-credit" style="margin-bottom:32px;">
+  <div class="featured-credit featured-credit--first">
     <div class="featured-credit-icon">📺</div>
     <div>
       <span class="credit-role">TV Drama · Composer &amp; Music Editor</span>
-      <h3 style="font-size:1.3rem;">Skilda Världar — SVT</h3>
-      <p style="font-size:1rem;line-height:1.75;margin-top:8px;">Swedish Public Television's long-running drama series. Torbjörn served as composer and music editor across <strong style="color:var(--white)">450 episodes</strong> — one of the defining long-form TV projects of his career.</p>
+      <h3 class="featured-credit-title">Skilda Världar, SVT</h3>
+      <p class="featured-credit-desc">Swedish Public Television's long-running drama series. Torbjörn served as composer and music editor across <strong class="text-white">450 episodes</strong>, one of the defining long-form TV projects of his career.</p>
     </div>
   </div>
 
   <!-- FEATURED: DEATH TO PLATITUDES -->
-  <div class="featured-credit" style="margin-bottom:48px;">
+  <div class="featured-credit featured-credit--last">
     <div class="featured-credit-icon">🏆</div>
     <div>
       <span class="credit-role">Film · Sound Design · Award Winner</span>
-      <h3 style="font-size:1.3rem;">Death to Platitudes</h3>
-      <p style="font-size:1rem;line-height:1.75;margin-top:8px;">Norwegian short comedy by Øyvind Olav Sydow Kleiveland, starring Helge Jordal. Toby's sound design won <strong style="color:var(--white)">Best Sound Design</strong> at the Rome International Movie Awards (July 2024). Also selected for the New York Independent Film Awards and the Christian Film Festival.</p>
-      <div class="award-chip" style="margin-top:14px;margin-bottom:0;">
+      <h3 class="featured-credit-title">Death to Platitudes</h3>
+      <p class="featured-credit-desc">Norwegian short comedy by Øyvind Olav Sydow Kleiveland, starring Helge Jordal. Toby's sound design won <strong class="text-white">Best Sound Design</strong> at the Rome International Movie Awards (July 2024). Also selected for the New York Independent Film Awards and the Christian Film Festival.</p>
+      <div class="award-chip award-chip--inline">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
-        Rome International Movie Awards 2024 — Winner
+        Rome International Movie Awards 2024, Winner
       </div>
     </div>
   </div>
@@ -65,8 +83,8 @@
       <h2>TV &amp; Film</h2>
     </div>
 
-    <p style="margin-bottom:20px;font-size:0.9rem;">Broadcast on and produced for:</p>
-    <div class="client-logos" style="margin-bottom:32px;">
+    <p class="credits-intro">Broadcast on and produced for:</p>
+    <div class="client-logos client-logos--spaced">
       <span class="client-tag">SVT</span>
       <span class="client-tag">TV4</span>
       <span class="client-tag">Kanal 10</span>
@@ -147,7 +165,7 @@
       <span class="credits-icon">📻</span>
       <h2>Radio</h2>
     </div>
-    <div class="channel-list" style="margin-bottom:0;">
+    <div class="channel-list channel-list--flush">
       <span class="channel-tag">Radio Hope</span>
       <span class="channel-tag">Radio 10</span>
       <span class="channel-tag">Radio 10 Classic</span>
@@ -243,7 +261,7 @@
       <span class="credits-icon">🎵</span>
       <h2>Music Recordings</h2>
     </div>
-    <p style="margin-bottom:24px;">Artists and ensembles recorded, mixed, or produced — spanning Sweden, Uganda, Hong Kong, Florida, and Israel.</p>
+    <p class="credits-intro--music">Artists and ensembles recorded, mixed, or produced, spanning Sweden, Uganda, Hong Kong, Florida, and Israel.</p>
     <div class="credits-grid">
       <div class="credit-card">
         <h3>Authentic Worship</h3>
@@ -263,11 +281,11 @@
       </div>
       <div class="credit-card">
         <h3>Eleonora Lahti</h3>
-        <p><em>Season of Change</em> album — recorded in Israel, released in Swedish and English.</p>
+        <p><em>Season of Change</em> album, recorded in Israel, released in Swedish and English.</p>
       </div>
       <div class="credit-card">
         <h3>Linda Nordfors</h3>
-        <p><em>A Passion Trilogy</em> — mix for video art exhibition.</p>
+        <p><em>A Passion Trilogy</em>, mix for video art exhibition.</p>
       </div>
       <div class="credit-card">
         <h3>S:ta Clara Lovsångsskola</h3>
@@ -307,8 +325,8 @@
       </div>
     </div>
 
-    <div style="margin-top:20px;">
-      <p style="font-size:0.85rem;margin-bottom:12px;">Mastering &amp; audio services for:</p>
+    <div class="mastering-section">
+      <p class="mastering-intro">Mastering &amp; audio services for:</p>
       <div class="channel-list">
         <span class="channel-tag">Acapesound</span>
         <span class="channel-tag">Hillfire</span>
@@ -356,7 +374,7 @@
       <div>
         <span class="credit-role">Norea Sverige · Music Production</span>
         <h3>Välkommen till Sverige</h3>
-        <p style="margin-top:6px;">Educational app in Farsi across 20 episodes, designed to help newcomers to Sweden. Toby composed and produced all music for the app.</p>
+        <p class="featured-credit-desc--app">Educational app in Farsi across 20 episodes, designed to help newcomers to Sweden. Toby composed and produced all music for the app.</p>
       </div>
     </div>
   </div>
@@ -379,9 +397,9 @@
 <!-- ─── CTA ─── -->
 <div class="divider">
   <section class="section contact-wrap">
-    <div class="label" style="justify-content:center;">Get in touch</div>
+    <div class="label label--center">Get in touch</div>
     <h2>Have a project in mind?</h2>
-    <p class="hero-sub" style="margin:0 auto 0;">Reach out to discuss music production, sound design, or anything audio.</p>
+    <p class="hero-sub hero-sub--center">Reach out to discuss music production, sound design, or anything audio.</p>
     <a class="contact-email" href="mailto:info@soundofmusic.se">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 5.5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       info@soundofmusic.se
@@ -393,17 +411,12 @@
 <footer>
   <span>© 2025 Torbjörn Frisk / Sound of Music Stockholm</span>
   <nav class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="analog-prophet.html">Analog Prophet</a>
-    <a href="https://www.osaas.io" target="_blank" rel="noopener">Built on OSC</a>
+    <a href="/">Home</a>
+    <a href="/analog-prophet">Analog Prophet</a>
+
   </nav>
 </footer>
 
-<script>
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
-</script>
+<script src="/nav.js"></script>
 </body>
 </html>

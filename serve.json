@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/work", "destination": "/work.html" },
+    { "source": "/analog-prophet", "destination": "/analog-prophet.html" }
+  ]
+}
