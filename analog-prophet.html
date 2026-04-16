@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analog Prophet — Torbjörn Frisk</title>
+  <meta name="description" content="Analog Prophet — electronic ambient music with ethnic influences by Torbjörn Frisk. Listen on Spotify." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ap-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 120px 48px 80px;
+    }
+    .ap-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://soundofmusic.se/wp-content/uploads/2024/10/cropped-IMG_1998-scaled-1.jpg');
+      background-size: cover;
+      background-position: center 55%;
+      background-attachment: fixed;
+      filter: brightness(0.35) saturate(1.4);
+    }
+    .ap-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(7,7,15,0.9) 0%,
+        rgba(7,7,15,0.5) 50%,
+        rgba(7,7,15,0.85) 100%
+      );
+    }
+    .ap-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .ap-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ap-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .ap-quote {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--blue);
+      line-height: 1.55;
+      padding: 20px 0 20px 20px;
+      border-left: 2px solid var(--blue);
+      margin-bottom: 32px;
+    }
+    .ap-genre-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .genre-tag {
+      background: rgba(91,200,245,0.08);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .albums-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .album-card {
+      background: var(--bg2);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .album-card:hover { background: rgba(91,200,245,0.04); }
+    .album-year {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .album-card h3 { margin-bottom: 10px; }
+    .top-tracks {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .track-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .track-row:last-child { border-bottom: none; }
+    .track-row:hover { background: rgba(91,200,245,0.04); }
+    .track-name { font-size: 0.9rem; color: var(--white); }
+    .track-plays {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .track-num {
+      font-size: 0.8rem;
+      color: var(--muted);
+      width: 20px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 860px) {
+      .ap-hero { padding: 120px 20px 60px; }
+      .ap-hero-bg { background-attachment: scroll; }
+      .ap-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .albums-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar" class="scrolled">
+  <a class="nav-logo" href="index.html">Sound<span>.</span>of<span>.</span>Music</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="analog-prophet.html" class="active">Analog Prophet</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<div class="ap-hero">
+  <div class="ap-hero-bg"></div>
+  <div class="ap-hero-inner">
+    <div>
+      <div class="label">Electronic Ambient · Stockholm</div>
+      <h1 class="ap-title">Analog<br />Prophet</h1>
+      <p class="ap-sub">Electronic ambient music with ethnic influences — music for reflection, calm, and the space between. A personal project by Torbjörn "Toby" Frisk.</p>
+      <blockquote class="ap-quote">"The best beat of any music is the beat of your own heart."</blockquote>
+      <div class="ap-genre-tags">
+        <span class="genre-tag">Electronic</span>
+        <span class="genre-tag">Ambient</span>
+        <span class="genre-tag">Ethnic</span>
+        <span class="genre-tag">Relaxation</span>
+        <span class="genre-tag">Synthesiser</span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a class="spotify-btn" href="https://open.spotify.com/artist/6FYDbbnvQy4rjDg5mhq8Wq" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Listen on Spotify
+        </a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@analogprophet" target="_blank" rel="noopener">
+          YouTube Channel
+        </a>
+      </div>
+    </div>
+    <div>
+      <iframe
+        src="https://open.spotify.com/embed/artist/6FYDbbnvQy4rjDg5mhq8Wq?utm_source=generator&theme=0"
+        width="100%" height="460" frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:var(--radius);display:block;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DISCOGRAPHY ─── -->
+<section class="section">
+  <div class="label">Discography</div>
+  <h2>Albums &amp; releases</h2>
+
+  <div class="albums-grid">
+    <div class="album-card">
+      <div class="album-year">2025</div>
+      <h3>Visions</h3>
+      <p>The most recent Analog Prophet album — a collection of atmospheric, synth-driven pieces exploring inner landscapes and spiritual themes.</p>
+    </div>
+    <div class="album-card">
+      <div class="album-year">2011</div>
+      <h3>Hana Ka'nima</h3>
+      <p>The project's debut full-length, introducing the signature sound: analog textures, ethnic rhythms, and ambient spaces. Part 3 has over 2,000 plays on Spotify.</p>
+    </div>
+    <div class="album-card">
+      <div class="album-year">2023</div>
+      <h3>Seven Trumpets</h3>
+      <p>A single exploring spiritual themes through layered synthesiser textures and ambient soundscapes.</p>
+    </div>
+    <div class="album-card">
+      <div class="album-year">2012</div>
+      <h3>River of Life — Soaking Music Vol. 1</h3>
+      <p>The most-streamed Analog Prophet release with over <strong style="color:var(--white)">12,800 plays</strong> on Spotify. Meditative, flowing ambient music.</p>
+    </div>
+    <div class="album-card">
+      <div class="album-year">2011</div>
+      <h3>Astrum</h3>
+      <p>Early release exploring cosmic and celestial themes through electronic ambient composition.</p>
+    </div>
+    <div class="album-card">
+      <div class="album-year">2011</div>
+      <h3>Sons of Levi</h3>
+      <p>Tribal and ethnic-influenced ambient piece from the early Analog Prophet catalogue.</p>
+    </div>
+  </div>
+
+  <!-- TOP TRACKS -->
+  <div class="label" style="margin-bottom:16px;">Most played tracks</div>
+  <div class="top-tracks">
+    <div class="track-row">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="track-num">1</span>
+        <span class="track-name">River of Life — Soaking Music Vol. 1</span>
+      </div>
+      <span class="track-plays">12,812 plays</span>
+    </div>
+    <div class="track-row">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="track-num">2</span>
+        <span class="track-name">Counting The Stars</span>
+      </div>
+      <span class="track-plays">4,714 plays</span>
+    </div>
+    <div class="track-row">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="track-num">3</span>
+        <span class="track-name">The Secret Place</span>
+      </div>
+      <span class="track-plays">3,490 plays</span>
+    </div>
+    <div class="track-row">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="track-num">4</span>
+        <span class="track-name">Hana Ka'nima, Part 3</span>
+      </div>
+      <span class="track-plays">2,318 plays</span>
+    </div>
+    <div class="track-row">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="track-num">5</span>
+        <span class="track-name">River Divine</span>
+      </div>
+      <span class="track-plays">1,643 plays</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT THE PROJECT ─── -->
+<div class="divider">
+  <section class="section">
+    <div style="max-width:640px;">
+      <div class="label">The project</div>
+      <h2>Sound, spirit,<br />and analog warmth.</h2>
+      <p style="font-size:1.05rem;line-height:1.8;">Analog Prophet began as a personal exploration — a space away from commercial work where Toby could follow sounds purely for their own sake. Using an extensive collection of analog synthesisers and modular equipment, the project blends electronic textures with ethnic and world influences to create music that moves slowly, breathes deeply.</p>
+      <p style="font-size:1.05rem;line-height:1.8;margin-top:14px;">The music is often described as spiritual and meditative — fitting for the imagery the name evokes. It exists in the tradition of artists like Brian Eno, Harold Budd, and Klaus Schulze, while carrying its own quietly distinctive voice.</p>
+      <p style="font-size:1.05rem;line-height:1.8;margin-top:14px;">New material continues to emerge. The 2025 album <em>Visions</em> represents the latest chapter in an ongoing journey through sound.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ─── CTA ─── -->
+<section class="section contact-wrap">
+  <div class="label" style="justify-content:center;">Get in touch</div>
+  <h2>Interested in the music?</h2>
+  <p class="hero-sub" style="margin:0 auto 0;">For sync licensing, collaborations, or general enquiries about Analog Prophet.</p>
+  <a class="contact-email" href="mailto:info@soundofmusic.se">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 5.5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    info@soundofmusic.se
+  </a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span>© 2025 Torbjörn Frisk / Sound of Music Stockholm</span>
+  <nav class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="https://www.osaas.io" target="_blank" rel="noopener">Built on OSC</a>
+  </nav>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+</script>
+</body>
+</html>
