@@ -235,6 +235,24 @@ em { color: var(--white); font-style: italic; }
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+.divider--services {
+  position: relative;
+  background-image: url('services-bg.avif');
+  background-size: cover;
+  background-position: center 30%;
+  border: none;
+}
+.divider--services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(7,7,15,0.82);
+  pointer-events: none;
+}
+.divider--services .section {
+  position: relative;
+  z-index: 1;
+}
 
 /* ─── ABOUT GRID ─── */
 .about-grid {
