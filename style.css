@@ -201,6 +201,7 @@ h1 {
   position: absolute;
   inset: 0;
   background-image: url('work-bg.jpg');
+  background-image: image-set(url('work-bg.webp') type('image/webp'), url('work-bg.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center 30%;
   background-attachment: fixed;
@@ -468,6 +469,7 @@ em { color: var(--white); font-style: italic; }
 .studio-wrap {
   position: relative;
   background-image: url('studio-bg.jpg');
+  background-image: image-set(url('studio-bg.webp') type('image/webp'), url('studio-bg.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
