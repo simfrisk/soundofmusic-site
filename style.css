@@ -744,10 +744,7 @@ em { color: var(--white); font-style: italic; }
   padding: 0 0 36px 0;
   margin-bottom: 36px;
   border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 18px;
-  align-items: start;
+  display: block;
 }
 .featured-credit:last-child {
   border-bottom: none;
